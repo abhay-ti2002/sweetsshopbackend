@@ -16,6 +16,13 @@ app.use(
 app.use(express.json());
 app.use(cookiesParser());
 
+app.get("/", (req, res) => {
+  res.status(200).json({
+    success: true,
+    message: "SweetShop Backend is running 🚀",
+  });
+});
+
 const authRouter = require("./router/authrouter");
 const sweetRoutes = require("./router/sweetsrouter");
 
