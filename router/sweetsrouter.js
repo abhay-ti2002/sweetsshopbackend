@@ -17,6 +17,8 @@ sweetsRouter.post("/sweets", auth, adminOnly, async (req, res) => {
       category,
       price,
       quantity,
+      discription,
+      photo,
     });
 
     await sweet.save();
@@ -50,7 +52,7 @@ sweetsRouter.post("/sweets/bulk", auth, adminOnly, async (req, res) => {
 });
 
 // GET all sweets
-sweetsRouter.get("/view/sweets", auth, async (req, res) => {
+sweetsRouter.get("/view/sweets", async (req, res) => {
   try {
     const sweets = await Sweet.find();
 
@@ -65,7 +67,7 @@ sweetsRouter.get("/view/sweets", auth, async (req, res) => {
 });
 
 // SEARCH sweets
-sweetsRouter.get("/sweets/search", auth, async (req, res) => {
+sweetsRouter.get("/sweets/search", async (req, res) => {
   try {
     const { name, category, minPrice, maxPrice } = req.query;
 
@@ -215,6 +217,5 @@ sweetsRouter.post(
   }
 );
 
-module.exports = sweetsRouter;
 
 module.exports = sweetsRouter;
